@@ -19,7 +19,7 @@ makes <- vehicles$make
 length(unique(makes))
 
 # Filter the data set for vehicles manufactured in 1997
-vehicles.1997 <- vehicles[vehicles$year > 1997, ]
+vehicles.1997 <- vehicles[vehicles$year == 1997, ]
 
 # Arrange the 1997 cars by highway (`hwy`) gas milage
 # Hint: use the `order()` function similar to how you would use the `max()` function.
