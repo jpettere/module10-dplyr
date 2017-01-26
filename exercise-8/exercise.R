@@ -4,19 +4,20 @@
 
 
 #Load in SwissData from data set from data folder and view it to understand what is in it. 
-
+swiss.data <- read.csv("data/SwissData.csv")
 
 #Add a column (using dpylr) that is the absolute difference between Education and Examination and call it 
 # Educated.Score
-
+swiss.data <- mutate(swiss.data, Educated.Score = abs(Education - Examination))
+View(swiss.data)
 
 #Which area(s) had the largest difference 
-
+print(filter(swiss.data, Educated.Score == max(Educated.Score)))
 
 #Find which region has the highest percent of men in agriculture and retunr only the 
 #percent and region name.  Use pipe operators to accomplish this. 
-
-
+highest.men <- filter(swiss.data, Agriculture == max(Agriculture)) %>% 
+                select(Region, Agriculture)
 #Find the average of all infant.mortality rates and create a column (Mortality.Difference)
 # showing the difference between a regions mortality rate and the mean. Arrange the dataframe in 
 # Descending order based on this new column. Use pipe operators.
